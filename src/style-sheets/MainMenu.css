@@ -1,0 +1,42 @@
+.main_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu_modal {
+    width: 324px;
+    height: 531px;
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title_svg {
+    height: 130px;
+    width: 263px;
+}
+
+.start_btn {
+    height: 160px;
+    width: 160px;
+    border-radius: 100px;
+    background: linear-gradient(180deg, hsla(300, 99%, 72%, 1) 0%, hsla(223, 100%, 72%, 1) 100%);
+    box-shadow: 0px 4px 0px 5px #243041, inset 0px -9px 0px 6px #9D2DF5;
+    border: none;
+}
+
+.play_btn_svg  {
+    height: 50px;
+    width: 50px;
+}
+
+/* //////////////////// Hover ///////////////////// */
+
+.start_btn:hover {
+    cursor: pointer;
+    opacity: .8;
+}

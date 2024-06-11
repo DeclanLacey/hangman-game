@@ -1,0 +1,17 @@
+:root {
+    --main-blue: #2463FF;
+    --light-blue: #7199FF;
+    --dark-blue: #261676;
+    --pink: #FE71FE;
+    --white: #FFFFFF;
+    --pink-blue-gradient: linear-gradient(180deg, hsla(300, 99%, 72%, 1) 0%, hsla(223, 100%, 72%, 1) 100%);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-image: url("../assets/images/background-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
