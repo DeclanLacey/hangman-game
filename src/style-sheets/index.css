@@ -1,10 +1,13 @@
 :root {
     --main-blue: #2463FF;
     --light-blue: #7199FF;
+    --sky-blue: #3C74FF;
     --dark-blue: #261676;
+    --very-dark-blue: #140e66;
     --pink: #FE71FE;
     --white: #FFFFFF;
     --pink-blue-gradient: linear-gradient(180deg, hsla(300, 99%, 72%, 1) 0%, hsla(223, 100%, 72%, 1) 100%);
+    --light-blue-dark-blue-gradient: linear-gradient(180deg, hsla(230, 56%, 47%, 1) 0%, hsla(230, 100%, 24%, .83) 100%);
 }
 
 body {
@@ -14,4 +17,9 @@ body {
     background-image: url("../assets/images/background-mobile.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+}
+
+* {
+    font-family: "Mouse Memoirs", sans-serif;
 }
