@@ -4,10 +4,14 @@
     --sky-blue: #3C74FF;
     --dark-blue: #261676;
     --very-dark-blue: #140e66;
+    --dark-grey: #243041;
+    --purple: #9d2df5;
+    --light-purple: #887DC0;
     --pink: #FE71FE;
     --white: #FFFFFF;
     --pink-blue-gradient: linear-gradient(180deg, hsla(300, 99%, 72%, 1) 0%, hsla(223, 100%, 72%, 1) 100%);
     --light-blue-dark-blue-gradient: linear-gradient(180deg, hsla(230, 56%, 47%, 1) 0%, hsla(230, 100%, 24%, .83) 100%);
+    --light-blue-white-gradient: linear-gradient(180deg, hsla(209, 100%, 70%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
 }
 
 body {
@@ -21,5 +25,6 @@ body {
 }
 
 * {
+    box-sizing: border-box;
     font-family: "Mouse Memoirs", sans-serif;
 }
