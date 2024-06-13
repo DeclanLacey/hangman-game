@@ -5,21 +5,6 @@
     margin-left: 7%;
 }
 
-.back_btn {
-    height: 40px;
-    width: 40px;
-    background: var(--pink-blue-gradient);
-    border: none;
-    border-radius: 100px;
-    box-shadow: inset 0px -5px 0px -1px rgba(157, 45, 245, .25);
-    margin-right: 35%;
-}
-
-.back_btn_icon {
-    width: 17px;
-    height: 17px;
-}
-
 .instruction_page_title {
     font-size: 3rem;
     font-weight: 400;

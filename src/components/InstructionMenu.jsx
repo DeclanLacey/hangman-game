@@ -1,3 +1,4 @@
+import BackBtn from "./BackBtn"
 import "../style-sheets/InstructionMenu.css"
 
 function InstructionMenu(props) {
@@ -18,7 +19,7 @@ function InstructionMenu(props) {
     return(
         <section>
             <header className="instruction_menu_header">
-                <button onClick={handleBackBtnClick} className="back_btn" alt="back button"><img className="back_btn_icon" src="../assets/images/icon-back.svg" aria-hidden="true" /></button>
+                <BackBtn onClickFunction={handleBackBtnClick}/>
                 <div className="instruction_page_title_container">
                     <h1 className="instruction_page_title">How to Play</h1>
                     <img aria-hidden="true" className="instruction_page_title_shadow" src="../assets/images/how-to-play.svg" />

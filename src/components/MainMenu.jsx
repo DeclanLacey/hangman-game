@@ -1,3 +1,4 @@
+import "../style-sheets/MainMenu.css"
 
 function MainMenu(props) {
 
