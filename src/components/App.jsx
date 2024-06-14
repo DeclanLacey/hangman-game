@@ -6,15 +6,15 @@ import '../style-sheets/App.css'
 
 function App() {
 
-  const [mainMenuOpen, setMainMenuOpen] = useState(false)
-  const [instructionMenuOpen, setInstructionMenuOpen] = useState(true)
-  const [categoryPickMenuOpen, setCategoryPickMenuOpen] = useState(true)
+  const [mainMenuOpen, setMainMenuOpen] = useState(true)
+  const [instructionMenuOpen, setInstructionMenuOpen] = useState(false)
+  const [categoryPickMenuOpen, setCategoryPickMenuOpen] = useState(false)
 
   return (
     <div className='app'>
-      {mainMenuOpen ? <MainMenu setMainMenuOpen={setMainMenuOpen} setInstructionMenuOpen={setInstructionMenuOpen} /> : <></>}
+      {mainMenuOpen ? <MainMenu setMainMenuOpen={setMainMenuOpen} setInstructionMenuOpen={setInstructionMenuOpen} setCategoryPickMenuOpen={setCategoryPickMenuOpen} /> : <></>}
       {instructionMenuOpen ? <InstructionMenu setMainMenuOpen={setMainMenuOpen} setInstructionMenuOpen={setInstructionMenuOpen} /> : <></>}
-      {categoryPickMenuOpen ? <CategoryPickMenu /> : <></>}
+      {categoryPickMenuOpen ? <CategoryPickMenu setMainMenuOpen={setMainMenuOpen} setCategoryPickMenuOpen={setCategoryPickMenuOpen} /> : <></>}
     </div>
   )
 }

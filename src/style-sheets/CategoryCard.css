@@ -1,0 +1,24 @@
+
+.category_card {
+    min-width: 290px;
+    max-width: 354px;
+    height: 77px;
+    border-radius: 20px;
+    background-color: var(--main-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue), inset 0px 1px 0px 6px var(--sky-blue);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    border: none;
+}
+
+
+
+/* ////////// hover ////////// */
+
+.category_card:hover {
+    cursor: pointer;
+}

@@ -11,10 +11,13 @@
     background-image: var(--light-blue-white-gradient);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .instruction_page_title_container {
     position: relative;
+    margin-left: 35%;
+   
 }
 
 .instruction_page_title_shadow {

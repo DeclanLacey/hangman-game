@@ -10,8 +10,13 @@ function MainMenu(props) {
         props.setInstructionMenuOpen(true)
     }
 
+    function openCategoryPickMenu() {
+        props.setCategoryPickMenuOpen(true)
+    }
+
     function handlePlayBtnClick() {
         closeMainMenu()
+        openCategoryPickMenu()
     }
 
     function handleHowToPlayBtnClick() {
