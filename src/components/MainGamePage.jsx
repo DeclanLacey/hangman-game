@@ -7,7 +7,7 @@ function MainGamePage(props) {
 
     const [gameWord, setGameWord] = useState("")
     const [availableCategories, setAvailableCategories] = useState(["animal", "country", "food", "plant", "sport"])
-    const [currentChosenLetters, setCurrentChosenLetters] = []
+    const [currentChosenLetters, setCurrentChosenLetters] = useState([])
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -55,10 +55,10 @@ function MainGamePage(props) {
                 </div>
             </header>
 
-            <WordBoard gameWord={gameWord} />
+            <WordBoard gameWord={gameWord} currentChosenLetters={currentChosenLetters} />
 
             <div className="keyboard_container">
-                <Keyboard />
+                <Keyboard setCurrentChosenLetters={setCurrentChosenLetters}/>
             </div>
             
         </section>

@@ -1,7 +1,7 @@
 import KeyboardLetter from "./KeyboardLetter"
 import "../style-sheets/Keyboard.css"
 
-function Keyboard() {
+function Keyboard(props) {
 
     function getLetters() {
         const letters = (() => {
@@ -11,18 +11,24 @@ function Keyboard() {
         return letters
     }
     
+    function handleLetterClick(event) {
+        props.setCurrentChosenLetters(prevState => [...prevState, event.target.textContent])
+        event.target.disabled = true
+        event.target.classList.add("chosen_letter")
+        console.log(event.target)
+    }
+
     function renderLetters() {
         const letterElements = getLetters().map((letter, index) => {
             
             return (
-                <KeyboardLetter key={index} letter={letter} />
+                <KeyboardLetter handleLetterClick={handleLetterClick} key={index} letter={letter} />
             )
             
         })
         return letterElements
     }
 
-      
 
     return (
         <section className="keyboard_letters_container">

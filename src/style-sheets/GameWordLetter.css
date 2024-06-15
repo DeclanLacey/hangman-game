@@ -11,3 +11,7 @@
     text-transform: uppercase;
     font-size: 2.4rem;
 }
+
+.hidden {
+    display: none;
+}
