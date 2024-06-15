@@ -17,17 +17,9 @@ function WordBoard(props) {
         return wordLetters
     }
 
-    // renderLetters()
-    
-
     return (
         <section className="word_board">
-            {/* <div className="word_board_word-outline">
-                <GameWordLetter letter={"a"}/>
-            </div> */}
             {renderLetters()}
-            
-            
         </section>
     )
 }

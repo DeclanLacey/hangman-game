@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import WordBoard from "./WordBoard"
+import Keyboard from "./Keyboard"
 import "../style-sheets/MainGamePage.css"
 
 function MainGamePage(props) {
@@ -22,6 +23,8 @@ function MainGamePage(props) {
             }catch(error) {
                 if (error.name !== "AbortError") {
                     throw new Error("The data request was unsuccessful")
+                }else {
+                    throw new Error("Error: " + error)
                 }
             }
             
@@ -53,6 +56,11 @@ function MainGamePage(props) {
             </header>
 
             <WordBoard gameWord={gameWord} />
+
+            <div className="keyboard_container">
+                <Keyboard />
+            </div>
+            
         </section>
     )
 }

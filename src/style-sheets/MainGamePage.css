@@ -66,6 +66,13 @@
     border-radius: 96px;
 }
 
+.keyboard_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 
 /* /////////////// hover ////////////////// */
 

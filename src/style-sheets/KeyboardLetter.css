@@ -1,0 +1,26 @@
+.keyboard_letter {
+    width: 33px;
+    height: 65px;
+    background-color: white;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border: none;
+}
+
+.chosen_letter {
+    opacity: .2;
+}
+
+
+/* ///////////// hover //////////////// */
+
+.keyboard_letter:hover {
+    cursor: pointer;
+}
