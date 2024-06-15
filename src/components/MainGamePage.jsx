@@ -38,6 +38,18 @@ function MainGamePage(props) {
         return Math.floor(Math.random() * max - 2)
     }
 
+    // function checkForCorrectLetters() {
+    //     const currentGameWord = gameWord
+    //     const gameWordLetterArray = currentGameWord.split("")
+    //     if(gameWordLetterArray.includes(currentChosenLetters[currentChosenLetters.length - 1])) {
+            
+    //     }else {
+    //         setCurrentChosenLetters(prevState => prevState.pop())
+    //     }
+    // }
+
+    // checkForCorrectLetters()
+
 
     return (
         <section>

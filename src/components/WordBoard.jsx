@@ -3,14 +3,24 @@ import "../style-sheets/WordBoard.css"
 
 function WordBoard(props) {
 
+    
+    
+    
     function renderLetters() {
         let gameWord = props.gameWord
         const letters = gameWord.split("")
         
         const wordLetters = letters.map((letter, index) => {
+            function checkForChosenLetter() {
+                if(props.currentChosenLetters.includes(letter)) {
+                    return true
+                }else {
+                    return false
+                }
+            }
             return (
                 <div key={index} className="word_board_word-outline">
-                    <GameWordLetter letter={letter} />
+                    <GameWordLetter chosenLetter={checkForChosenLetter()} letter={letter} />
                 </div>
             )
         })
