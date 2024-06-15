@@ -1,0 +1,74 @@
+.game_page_header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.game_page_header_left_side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.game_page_header_right_side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.category_name {
+    color: white;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    font-weight: 200;
+}
+
+.burger_menu {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background: var(--pink-blue-gradient);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px -5px 0px -1px var(--purple);
+}
+
+.burger_menu_icon  {
+    width: 16px;
+    height: 12px;
+}
+
+.heart_icon {
+    width: 26px;
+    height: 26px;
+}
+
+.health_bar {
+    width: 57px;
+    height: 16px;
+    background-color: white;
+    border-radius: 96px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 3px;
+}
+
+.health_bar_level {
+    width: 50px;
+    height: 8px;
+    background-color: var(--very-dark-blue);
+    border-radius: 96px;
+}
+
+
+/* /////////////// hover ////////////////// */
+
+.burger_menu:hover {
+    cursor: pointer;
+}

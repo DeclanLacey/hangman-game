@@ -27,8 +27,14 @@ function CategoryPickMenu(props) {
 
     function handleCategoryBtnClick(event) {
         props.setCategoryChoice(event.target.textContent)
+        openGamePage()
+        closeCategoryPickMenu()
     }
 
+    function openGamePage() {
+        props.setGamePageOpen(true)
+    }
+ 
     function openMainMenu() {
         props.setMainMenuOpen(true)
     }
