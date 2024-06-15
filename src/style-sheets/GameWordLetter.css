@@ -1,0 +1,13 @@
+.game_word_letter {
+    width: 37px;
+    height: 60px;
+    background-color: var(--main-blue);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 5px 0px 2px var(--sky-blue);
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+}

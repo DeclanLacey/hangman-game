@@ -1,0 +1,16 @@
+.word_board_word-outline {
+    width: 37px;
+    height: 60px;
+    background-color: var(--very-dark-blue);
+    border-radius: 12px;
+    box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue);
+}
+
+.word_board {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 10px;
+    flex-wrap: wrap;
+}

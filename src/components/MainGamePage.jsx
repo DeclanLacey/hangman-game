@@ -1,6 +1,41 @@
+import { useState, useEffect } from "react"
+import WordBoard from "./WordBoard"
 import "../style-sheets/MainGamePage.css"
 
 function MainGamePage(props) {
+
+    const [gameWord, setGameWord] = useState("")
+    const [availableCategories, setAvailableCategories] = useState(["animal", "country", "food", "plant", "sport"])
+    const [currentChosenLetters, setCurrentChosenLetters] = []
+
+    useEffect(() => {
+        const abortController = new AbortController();
+
+        async function getGameWord() {
+            try {
+                let categoryChoice = ""
+                availableCategories.includes(props.categoryChoice) ? categoryChoice = props.categoryChoice : () => {throw new Error("invalid category choice")}
+                const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${categoryChoice}`
+                let response = await fetch(apiURL)
+                let data = await response.json()
+                setGameWord(data[getRandomNumberForWord(data.length)].word)
+            }catch(error) {
+                if (error.name !== "AbortError") {
+                    throw new Error("The data request was unsuccessful")
+                }
+            }
+            
+        }
+        getGameWord()
+
+        return () => abortController.abort()
+    }, [])
+
+    function getRandomNumberForWord(max) {
+        return Math.floor(Math.random() * max - 2)
+    }
+
+
     return (
         <section>
             <header className="game_page_header">
@@ -17,7 +52,7 @@ function MainGamePage(props) {
                 </div>
             </header>
 
-            
+            <WordBoard gameWord={gameWord} />
         </section>
     )
 }
