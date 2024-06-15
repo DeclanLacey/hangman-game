@@ -20,9 +20,13 @@ function CategoryPickMenu(props) {
 
     function renderCategories() {
         const categoryElements = categoryNames.map((category, index) => {
-            return <CategoryCard key={index} name={category}/>
+            return <CategoryCard handleCategoryBtnClick={handleCategoryBtnClick}  key={index} name={category}/>
         })
         return categoryElements
+    }
+
+    function handleCategoryBtnClick(event) {
+        props.setCategoryChoice(event.target.textContent)
     }
 
     function openMainMenu() {
