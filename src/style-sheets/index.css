@@ -45,6 +45,18 @@ body {
     position: relative;
 }
 
+.modal-container {
+    
+    position: absolute;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .small_modal-box {
     height: 477px;
 }
@@ -75,6 +87,14 @@ body {
     color: white;
     margin-bottom: 40px;
     box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue), inset 0px 1px 0px 6px #C642FB;
+}
+
+.new-category-btn {
+    width: 275px;
+}
+
+.quit-btn {
+    width: 235px;
 }
 
 

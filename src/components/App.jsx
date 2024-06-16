@@ -15,17 +15,121 @@ function App() {
   const [gamePageOpen, setGamePageOpen] = useState(false)
   const [pausedModalOpen, setPausedModalOpen] = useState(false)
   const [winOrLoseModalOpen, setWinOrLoseModalOpen] = useState(false)
+  const [playerHasWon, setPlayerHasWon] = useState(false)
+  const [playerHasLost, setPlayerHasLost] = useState(false)
   const [categoryChoice, setCategoryChoice] = useState("")
+
+  function closePausedModal() {
+    setPausedModalOpen(false)
+  }
+
+  function openMainMenu() {
+    setMainMenuOpen(true)
+  }
+
+  function closeGamePage() {
+    setGamePageOpen(false)
+  }
+
+  function openCategoryPickMenu() {
+    setCategoryPickMenuOpen(true)
+  }
+
+  function closeWinOrLoseModal() {
+    setWinOrLoseModalOpen(false)
+  }
+
+
+
+  function handleContinueBtnClick() {
+    closePausedModal()
+  }
+
+  function handlePlayAgainBtnClick() {
+    closeWinOrLoseModal()
+    setPlayerHasLost(false)
+    setPlayerHasWon(false)
+  }
+
+  function handleNewCategoryBtnClick() {
+    closeGamePage()
+    closePausedModal()
+    openCategoryPickMenu()
+    closeWinOrLoseModal()
+  }
+
+  function handleQuitBtnClick() {
+    closeGamePage()
+    closePausedModal()
+    closeWinOrLoseModal()
+    openMainMenu()
+  }
 
   return (
     <div className='app'>
       
-      {mainMenuOpen ? <MainMenu setMainMenuOpen={setMainMenuOpen} setInstructionMenuOpen={setInstructionMenuOpen} setCategoryPickMenuOpen={setCategoryPickMenuOpen} /> : <></>}
-      {instructionMenuOpen ? <InstructionMenu setMainMenuOpen={setMainMenuOpen} setInstructionMenuOpen={setInstructionMenuOpen} /> : <></>}
-      {categoryPickMenuOpen ? <CategoryPickMenu setMainMenuOpen={setMainMenuOpen} setCategoryPickMenuOpen={setCategoryPickMenuOpen} setCategoryChoice={setCategoryChoice} setGamePageOpen={setGamePageOpen} /> : <></>}
-      {gamePageOpen ? <MainGamePage categoryChoice={categoryChoice} setPausedModalOpen={setPausedModalOpen} setWinOrLoseModalOpen={setWinOrLoseModalOpen} /> : <></>}
-      {pausedModalOpen ? <PausedModal setCategoryPickMenuOpen={setCategoryPickMenuOpen} setPausedModalOpen={setPausedModalOpen} setGamePageOpen={setGamePageOpen} setMainMenuOpen={setMainMenuOpen} /> : <></>}
-      {winOrLoseModalOpen ? <WinOrLoseModal /> : <></>}
+      {mainMenuOpen 
+        ? 
+          <MainMenu 
+            setMainMenuOpen={setMainMenuOpen} 
+            setInstructionMenuOpen={setInstructionMenuOpen} 
+            setCategoryPickMenuOpen={setCategoryPickMenuOpen} 
+          /> 
+        : 
+          <></>
+      }
+      {instructionMenuOpen 
+        ? 
+          <InstructionMenu 
+            setMainMenuOpen={setMainMenuOpen} 
+            setInstructionMenuOpen={setInstructionMenuOpen} 
+          /> 
+        : 
+          <></>
+      }
+      {categoryPickMenuOpen 
+        ? 
+          <CategoryPickMenu 
+            setMainMenuOpen={setMainMenuOpen} 
+            setCategoryPickMenuOpen={setCategoryPickMenuOpen} 
+            setCategoryChoice={setCategoryChoice} 
+            setGamePageOpen={setGamePageOpen} 
+          /> 
+        : 
+          <></>
+      }
+      {gamePageOpen 
+        ? 
+          <MainGamePage 
+            categoryChoice={categoryChoice} 
+            setPausedModalOpen={setPausedModalOpen} 
+            setWinOrLoseModalOpen={setWinOrLoseModalOpen} 
+          /> 
+        : 
+          <></>
+      }
+      {pausedModalOpen 
+        ? 
+          <PausedModal 
+            handleContinueBtnClick={handleContinueBtnClick} 
+            handleNewCategoryBtnClick={handleNewCategoryBtnClick} 
+            handleQuitBtnClick={handleQuitBtnClick} 
+          /> 
+        : 
+          <></>
+      }
+      {winOrLoseModalOpen 
+        ? 
+          <WinOrLoseModal 
+            playerHasLost={playerHasLost} 
+            playerHasWon={playerHasWon} 
+            handlePlayAgainBtnClick={handlePlayAgainBtnClick} 
+            handleNewCategoryBtnClick={handleNewCategoryBtnClick} 
+            handleQuitBtnClick={handleQuitBtnClick} 
+          /> 
+        : 
+          <></>
+      }
     </div>
   )
 }

@@ -1,6 +1,4 @@
-
-
-.paused_text {
+.win-lose-text {
     font-size: 6rem;
     font-weight: 400;
     background-image: var(--light-blue-white-gradient);
@@ -16,19 +14,18 @@
     z-index: 2;
 }
 
-.continue-btn {
-    width: 226px;
-}
-
-.modal_btns {
+.btn-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 0px;
 }
 
-.paused_title-shadow {
+.play-again-btn {
+    width: 226px;
+}
+
+.win-shadow {
     position: absolute;
     top: -36px;
     left: 0; 
@@ -36,6 +33,22 @@
     margin-left: auto; 
     margin-right: auto; 
     z-index: 1;
-    width: 195px;
+    width: 220px;
+    height: 85px;
+    z-index: 1;
+}
+
+.lose-shadow {
+    position: absolute;
+    top: -37px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    z-index: 1;
+    width: 235px;
     height: 85px;
 }
+
+
+
