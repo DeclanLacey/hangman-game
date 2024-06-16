@@ -1,0 +1,46 @@
+.paused_modal-container {
+    
+    position: absolute;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paused_text {
+    font-size: 6rem;
+    font-weight: 400;
+    background-image: var(--light-blue-white-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: -130px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: fit-content;
+}
+
+.continue-btn {
+    width: 226px;
+}
+
+.new-category-btn {
+    width: 275px;
+}
+
+.quit-btn {
+    width: 235px;
+}
+
+.modal_btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}

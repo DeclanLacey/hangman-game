@@ -1,25 +1,29 @@
 import { useState, useEffect } from "react"
 import WordBoard from "./WordBoard"
 import Keyboard from "./Keyboard"
+import PausedModal from "./PausedModal"
 import "../style-sheets/MainGamePage.css"
 
 function MainGamePage(props) {
 
     const [gameWord, setGameWord] = useState("")
-    const [availableCategories, setAvailableCategories] = useState(["animal", "country", "food", "plant", "sport"])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
 
     useEffect(() => {
         const abortController = new AbortController();
+        const availableCategories = ["animal", "country", "food", "plant", "sport"]
 
         async function getGameWord() {
             try {
-                let categoryChoice = ""
-                availableCategories.includes(props.categoryChoice) ? categoryChoice = props.categoryChoice : () => {throw new Error("invalid category choice")}
-                const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${categoryChoice}`
-                let response = await fetch(apiURL)
-                let data = await response.json()
-                setGameWord(data[getRandomNumberForWord(data.length)].word)
+                if (availableCategories.includes(props.categoryChoice)) {
+                    const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${props.categoryChoice}`
+                    let response = await fetch(apiURL)
+                    let data = await response.json()
+                    setGameWord(data[getRandomNumberForWord(data.length)].word)
+                }else {
+                    throw new Error("invalid category choice")
+                }
+                
             }catch(error) {
                 if (error.name !== "AbortError") {
                     throw new Error("The data request was unsuccessful")
@@ -36,6 +40,14 @@ function MainGamePage(props) {
 
     function getRandomNumberForWord(max) {
         return Math.floor(Math.random() * max - 2)
+    }
+
+    function openPausedModal() {
+        props.setPausedModalOpen(true)
+    }
+
+    function handleBurgerMenuClick() {
+        openPausedModal()
     }
 
     // function checkForCorrectLetters() {
@@ -55,7 +67,7 @@ function MainGamePage(props) {
         <section>
             <header className="game_page_header">
                 <div className="game_page_header_left_side">
-                    <button alt="menu button" className="burger_menu"> <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" /></button>
+                    <button onClick={handleBurgerMenuClick} alt="menu button" className="burger_menu"> <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" /></button>
                     <h1 className="category_name">{props.categoryChoice}</h1>
                 </div>
 
@@ -72,7 +84,6 @@ function MainGamePage(props) {
             <div className="keyboard_container">
                 <Keyboard setCurrentChosenLetters={setCurrentChosenLetters}/>
             </div>
-            
         </section>
     )
 }

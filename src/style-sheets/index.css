@@ -28,3 +28,59 @@ body {
     box-sizing: border-box;
     font-family: "Mouse Memoirs", sans-serif;
 }
+
+/* //////////////// shared styles ////////////////// */
+
+.blue_modal-box {
+    width: 324px;
+    height: 531px;
+    margin-bottom: -10%;
+    background: var(--light-blue-dark-blue-gradient);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 48px;
+    box-shadow:  inset 0px -8px 0px 4px var(--very-dark-blue), inset 0px 6px 0px 8px var(--main-blue);
+    position: relative;
+}
+
+.small_modal-box {
+    height: 477px;
+}
+
+
+
+.modal_btn-blue {
+    height: 62px;
+    border-radius: 40px;
+    background-color: var(--main-blue);
+    border: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 40px;
+    box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue), inset 0px 1px 0px 6px var(--sky-blue);
+}
+
+.modal_btn-pink {
+    height: 62px;
+    border-radius: 40px;
+    background: var(--pink-blue-gradient);
+    border: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 40px;
+    box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue), inset 0px 1px 0px 6px #C642FB;
+}
+
+
+/* ///////////////// shared hover /////////////////// */
+
+.modal_btn-pink:hover,
+.modal_btn-blue:hover {
+    cursor: pointer;
+}

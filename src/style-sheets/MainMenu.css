@@ -5,20 +5,6 @@
     height: 100vh;
 }
 
-.menu_modal {
-    width: 324px;
-    height: 531px;
-    margin-bottom: -10%;
-    background: var(--light-blue-dark-blue-gradient);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 48px;
-    box-shadow:  inset 0px -8px 0px 4px var(--very-dark-blue), inset 0px 6px 0px 8px var(--main-blue);
-    position: relative;
-}
-
 .title_svg {
     height: 130px;
     width: 263px;
@@ -55,7 +41,6 @@
     margin-bottom: 40px;
     box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue), inset 0px 1px 0px 6px var(--sky-blue);
 }
-
 
 /* //////////////////// Hover ///////////////////// */
 
