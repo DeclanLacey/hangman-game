@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react"
 import WordBoard from "./WordBoard"
 import Keyboard from "./Keyboard"
-import PausedModal from "./PausedModal"
 import "../style-sheets/MainGamePage.css"
+
+const TOTALHEALTH = 8
+let health = TOTALHEALTH
 
 function MainGamePage(props) {
 
     const [gameWord, setGameWord] = useState("")
+    const [gameWordLetterArray, setGameWordLetterArray] = useState([])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
-
+    
     useEffect(() => {
         const abortController = new AbortController();
         const availableCategories = ["animal", "country", "food", "plant", "sport"]
@@ -19,7 +22,10 @@ function MainGamePage(props) {
                     const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${props.categoryChoice}`
                     let response = await fetch(apiURL)
                     let data = await response.json()
-                    setGameWord(data[getRandomNumberForWord(data.length)].word)
+                    const randomIndex = getRandomNumberForWord(data.length)
+                    setGameWord(data[randomIndex].word)
+                    setGameWordLetterArray((data[randomIndex].word).split(""))
+
                 }else {
                     throw new Error("invalid category choice")
                 }
@@ -50,18 +56,17 @@ function MainGamePage(props) {
         openPausedModal()
     }
 
-    // function checkForCorrectLetters() {
-    //     const currentGameWord = gameWord
-    //     const gameWordLetterArray = currentGameWord.split("")
-    //     if(gameWordLetterArray.includes(currentChosenLetters[currentChosenLetters.length - 1])) {
+    function lowerHealthByOne() {
+        health--
+    }
+
+    function checkForPlayerLoseConditions() {
+        if (props.health === 0) {
             
-    //     }else {
-    //         setCurrentChosenLetters(prevState => prevState.pop())
-    //     }
-    // }
+        }
+    }
 
-    // checkForCorrectLetters()
-
+    checkForPlayerLoseConditions()
 
     return (
         <section>
@@ -82,7 +87,7 @@ function MainGamePage(props) {
             <WordBoard gameWord={gameWord} currentChosenLetters={currentChosenLetters} />
 
             <div className="keyboard_container">
-                <Keyboard setCurrentChosenLetters={setCurrentChosenLetters}/>
+                <Keyboard lowerHealthByOne={lowerHealthByOne} gameWordLetterArray={gameWordLetterArray} setCurrentChosenLetters={setCurrentChosenLetters}/>
             </div>
         </section>
     )

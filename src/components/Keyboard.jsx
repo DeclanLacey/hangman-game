@@ -12,17 +12,21 @@ function Keyboard(props) {
     }
     
     function handleLetterClick(event) {
+        
+        if ((props.gameWordLetterArray.includes(event.target.textContent)) === false) {
+            props.lowerHealthByOne()
+        }
         props.setCurrentChosenLetters(prevState => [...prevState, event.target.textContent])
         event.target.disabled = true
         event.target.classList.add("chosen_letter")
-        console.log(event.target)
+        
     }
 
     function renderLetters() {
         const letterElements = getLetters().map((letter, index) => {
             
             return (
-                <KeyboardLetter handleLetterClick={handleLetterClick} key={index} letter={letter} />
+                <KeyboardLetter  handleLetterClick={handleLetterClick} key={index} letter={letter} />
             )
             
         })

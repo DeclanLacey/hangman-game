@@ -18,7 +18,7 @@ function App() {
   const [playerHasWon, setPlayerHasWon] = useState(false)
   const [playerHasLost, setPlayerHasLost] = useState(false)
   const [categoryChoice, setCategoryChoice] = useState("")
-
+  
   function closePausedModal() {
     setPausedModalOpen(false)
   }
@@ -104,6 +104,7 @@ function App() {
             categoryChoice={categoryChoice} 
             setPausedModalOpen={setPausedModalOpen} 
             setWinOrLoseModalOpen={setWinOrLoseModalOpen} 
+            
           /> 
         : 
           <></>
