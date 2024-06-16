@@ -17,6 +17,7 @@ function App() {
   const [winOrLoseModalOpen, setWinOrLoseModalOpen] = useState(false)
   const [playerHasWon, setPlayerHasWon] = useState(false)
   const [playerHasLost, setPlayerHasLost] = useState(false)
+  const [newGame, setNewGame] = useState(false)
   const [categoryChoice, setCategoryChoice] = useState("")
   
   function closePausedModal() {
@@ -38,6 +39,12 @@ function App() {
   function closeWinOrLoseModal() {
     setWinOrLoseModalOpen(false)
   }
+  
+
+  function resetWinAndLoseState() {
+    setPlayerHasLost(false)
+    setPlayerHasWon(false)
+  }
 
 
 
@@ -49,6 +56,8 @@ function App() {
     closeWinOrLoseModal()
     setPlayerHasLost(false)
     setPlayerHasWon(false)
+    setGamePageOpen(false)
+    setGamePageOpen(true)
   }
 
   function handleNewCategoryBtnClick() {
@@ -56,6 +65,7 @@ function App() {
     closePausedModal()
     openCategoryPickMenu()
     closeWinOrLoseModal()
+    resetWinAndLoseState()
   }
 
   function handleQuitBtnClick() {
@@ -63,6 +73,7 @@ function App() {
     closePausedModal()
     closeWinOrLoseModal()
     openMainMenu()
+    resetWinAndLoseState()
   }
 
   return (
@@ -104,7 +115,10 @@ function App() {
             categoryChoice={categoryChoice} 
             setPausedModalOpen={setPausedModalOpen} 
             setWinOrLoseModalOpen={setWinOrLoseModalOpen} 
-            
+            setPlayerHasLost={setPlayerHasLost}
+            setPlayerHasWon={setPlayerHasWon}
+            setNewGame={setNewGame}
+            newGame={newGame}
           /> 
         : 
           <></>

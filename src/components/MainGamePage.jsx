@@ -12,11 +12,14 @@ function MainGamePage(props) {
     const [gameWordLetterArray, setGameWordLetterArray] = useState([])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
     
+    const healthBar = document.getElementById("health")
+    
     useEffect(() => {
         const abortController = new AbortController();
         const availableCategories = ["animal", "country", "food", "plant", "sport"]
 
         async function getGameWord() {
+            
             try {
                 if (availableCategories.includes(props.categoryChoice)) {
                     const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${props.categoryChoice}`
@@ -42,7 +45,9 @@ function MainGamePage(props) {
         getGameWord()
 
         return () => abortController.abort()
-    }, [])
+    }, [props.newGame])
+
+  
 
     function getRandomNumberForWord(max) {
         return Math.floor(Math.random() * max - 2)
@@ -57,16 +62,38 @@ function MainGamePage(props) {
     }
 
     function lowerHealthByOne() {
-        health--
+        healthBar.value -= 10
+        health--    
+    }
+
+   function resetGamePage() {
+        setGameWord("")
+        setGameWordLetterArray([])
+        setCurrentChosenLetters([])
+        healthBar.value += 80
+        props.setNewGame(prevState => !prevState)
+        
+
+   }
+
+    function playerHasLost() {
+        props.setWinOrLoseModalOpen(true)
+        props.setPlayerHasLost(true)
+        health = TOTALHEALTH
+        resetGamePage()
     }
 
     function checkForPlayerLoseConditions() {
-        if (props.health === 0) {
-            
+        if (health === 0) {
+            playerHasLost()
         }
     }
 
-    checkForPlayerLoseConditions()
+    useEffect(() => {
+        checkForPlayerLoseConditions()
+    }, [currentChosenLetters])
+
+    
 
     return (
         <section>
@@ -78,7 +105,7 @@ function MainGamePage(props) {
 
                 <div className="game_page_header_right_side">
                     <div className="health_bar">
-                        <div id="health" className="health_bar_level"></div>
+                        <progress id="health" value="80" max="80" className="health_bar_level"></progress>
                     </div>
                     <img alt="heart icon" className="heart_icon" src="../assets/images/icon-heart.svg" />
                 </div>

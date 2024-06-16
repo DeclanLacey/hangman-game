@@ -22,18 +22,23 @@ function Keyboard(props) {
         
     }
 
+    
+
+   
+
     function renderLetters() {
         const letterElements = getLetters().map((letter, index) => {
             
             return (
-                <KeyboardLetter  handleLetterClick={handleLetterClick} key={index} letter={letter} />
+                <KeyboardLetter handleLetterClick={handleLetterClick} key={index} letter={letter} />
             )
             
         })
+        
         return letterElements
     }
 
-
+    
     return (
         <section className="keyboard_letters_container">
             {renderLetters()}
