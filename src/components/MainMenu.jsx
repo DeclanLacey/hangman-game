@@ -26,7 +26,6 @@ function MainMenu(props) {
 
     return(
         <section className="main_menu">
-            
             <div className="blue_modal-box">
                 <img className="title_svg" src="../assets/images/logo.svg" alt="The Hangman Game" />
                 <button className="start_btn" alt="play button" onClick={handlePlayBtnClick} ><img className="play_btn_svg" src="../assets/images/icon-play.svg" aria-hidden="true" /></button >

@@ -39,14 +39,11 @@ function App() {
   function closeWinOrLoseModal() {
     setWinOrLoseModalOpen(false)
   }
-  
 
   function resetWinAndLoseState() {
     setPlayerHasLost(false)
     setPlayerHasWon(false)
   }
-
-
 
   function handleContinueBtnClick() {
     closePausedModal()

@@ -9,6 +9,7 @@ let health = TOTALHEALTH
 function MainGamePage(props) {
 
     const [gameWord, setGameWord] = useState("")
+    const [gameWordUniqueLetters, setGameWordUniqueLetters] = useState([])
     const [gameWordLetterArray, setGameWordLetterArray] = useState([])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
     
@@ -28,6 +29,7 @@ function MainGamePage(props) {
                     const randomIndex = getRandomNumberForWord(data.length)
                     setGameWord(data[randomIndex].word)
                     setGameWordLetterArray((data[randomIndex].word).split(""))
+                    setGameWordUniqueLetters([...new Set((data[randomIndex].word).split(""))])
 
                 }else {
                     throw new Error("invalid category choice")
@@ -46,9 +48,7 @@ function MainGamePage(props) {
 
         return () => abortController.abort()
     }, [props.newGame])
-
   
-
     function getRandomNumberForWord(max) {
         return Math.floor(Math.random() * max - 2)
     }
@@ -71,15 +71,19 @@ function MainGamePage(props) {
         setGameWordLetterArray([])
         setCurrentChosenLetters([])
         healthBar.value += 80
+        health = TOTALHEALTH
         props.setNewGame(prevState => !prevState)
-        
-
    }
 
     function playerHasLost() {
         props.setWinOrLoseModalOpen(true)
         props.setPlayerHasLost(true)
-        health = TOTALHEALTH
+        resetGamePage()
+    }
+
+    function playerHasWon() {
+        props.setWinOrLoseModalOpen(true)
+        props.setPlayerHasWon(true)
         resetGamePage()
     }
 
@@ -89,8 +93,25 @@ function MainGamePage(props) {
         }
     }
 
+    function checkForPlayerWinConditions() {
+        if (currentChosenLetters.length >= gameWordUniqueLetters.length && currentChosenLetters.length > 0) {
+            let letterCount = gameWordUniqueLetters.length
+            let correctLetterCount = 0
+            for(let i = 0; i < letterCount; i++) {
+                if (currentChosenLetters.includes(gameWordUniqueLetters[i])) {
+                    correctLetterCount++
+                }
+            }
+
+            if (correctLetterCount === letterCount) {
+                playerHasWon()
+            }
+        }
+    }
+
     useEffect(() => {
         checkForPlayerLoseConditions()
+        checkForPlayerWinConditions()
     }, [currentChosenLetters])
 
     
@@ -111,10 +132,18 @@ function MainGamePage(props) {
                 </div>
             </header>
 
-            <WordBoard gameWord={gameWord} currentChosenLetters={currentChosenLetters} />
+            <WordBoard 
+                gameWord={gameWord} 
+                currentChosenLetters={currentChosenLetters} 
+            />
 
             <div className="keyboard_container">
-                <Keyboard lowerHealthByOne={lowerHealthByOne} gameWordLetterArray={gameWordLetterArray} setCurrentChosenLetters={setCurrentChosenLetters} currentChosenLetters={currentChosenLetters}/>
+                <Keyboard 
+                    lowerHealthByOne={lowerHealthByOne} 
+                    gameWordLetterArray={gameWordLetterArray} 
+                    setCurrentChosenLetters={setCurrentChosenLetters} 
+                    currentChosenLetters={currentChosenLetters}
+                />
             </div>
         </section>
     )

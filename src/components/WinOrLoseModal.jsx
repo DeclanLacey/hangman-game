@@ -1,9 +1,6 @@
 import '../style-sheets/WinOrLoseModal.css'
 
 function WinOrLoseModal(props) {
-
-    
-
     return(
         <div className='modal-container'>
             <aside className='blue_modal-box small_modal-box'>

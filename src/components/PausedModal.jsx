@@ -16,7 +16,6 @@ function PausedModal(props) {
                 </div>
             </aside>
         </div>
-        
     )
     
 }

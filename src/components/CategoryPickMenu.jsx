@@ -56,7 +56,6 @@ function CategoryPickMenu(props) {
                 <h1 className="category_pick_title">Pick a Category</h1>
                     <img aria-hidden="true" className="category_page_title_shadow" src="../assets/images/pick-category.svg" />
                 </div>
-                
             </header>
             <div className="category_card_container">
                 {categoryNames ? renderCategories() : <></>}
