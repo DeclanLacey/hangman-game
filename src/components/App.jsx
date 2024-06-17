@@ -56,8 +56,6 @@ function App() {
     closeWinOrLoseModal()
     setPlayerHasLost(false)
     setPlayerHasWon(false)
-    setGamePageOpen(false)
-    setGamePageOpen(true)
   }
 
   function handleNewCategoryBtnClick() {

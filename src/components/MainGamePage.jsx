@@ -114,7 +114,7 @@ function MainGamePage(props) {
             <WordBoard gameWord={gameWord} currentChosenLetters={currentChosenLetters} />
 
             <div className="keyboard_container">
-                <Keyboard lowerHealthByOne={lowerHealthByOne} gameWordLetterArray={gameWordLetterArray} setCurrentChosenLetters={setCurrentChosenLetters}/>
+                <Keyboard lowerHealthByOne={lowerHealthByOne} gameWordLetterArray={gameWordLetterArray} setCurrentChosenLetters={setCurrentChosenLetters} currentChosenLetters={currentChosenLetters}/>
             </div>
         </section>
     )
