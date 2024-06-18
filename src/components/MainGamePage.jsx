@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import WordBoard from "./WordBoard"
 import Keyboard from "./Keyboard"
-import "../style-sheets/MainGamePage.css"
+import "../styles/MainGamePage.css"
 
 const TOTALHEALTH = 8
 let health = TOTALHEALTH
@@ -12,6 +12,7 @@ function MainGamePage(props) {
     const [gameWordUniqueLetters, setGameWordUniqueLetters] = useState([])
     const [gameWordLetterArray, setGameWordLetterArray] = useState([])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
+    const {categoryChoice, setPausedModalOpen, setWinOrLoseModalOpen, setPlayerHasLost, setPlayerHasWon, setNewGame, newGame} = props
     
     const healthBar = document.getElementById("health")
     
@@ -22,8 +23,8 @@ function MainGamePage(props) {
         async function getGameWord() {
             
             try {
-                if (availableCategories.includes(props.categoryChoice)) {
-                    const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${props.categoryChoice}`
+                if (availableCategories.includes(categoryChoice)) {
+                    const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${categoryChoice}`
                     let response = await fetch(apiURL)
                     let data = await response.json()
                     const randomIndex = getRandomNumberForWord(data.length)
@@ -47,14 +48,14 @@ function MainGamePage(props) {
         getGameWord()
 
         return () => abortController.abort()
-    }, [props.newGame])
+    }, [newGame])
   
     function getRandomNumberForWord(max) {
         return Math.floor(Math.random() * max - 2)
     }
 
     function openPausedModal() {
-        props.setPausedModalOpen(true)
+        setPausedModalOpen(true)
     }
 
     function handleBurgerMenuClick() {
@@ -72,18 +73,18 @@ function MainGamePage(props) {
         setCurrentChosenLetters([])
         healthBar.value += 80
         health = TOTALHEALTH
-        props.setNewGame(prevState => !prevState)
+        setNewGame(prevState => !prevState)
    }
 
     function playerHasLost() {
-        props.setWinOrLoseModalOpen(true)
-        props.setPlayerHasLost(true)
+        setWinOrLoseModalOpen(true)
+        setPlayerHasLost(true)
         resetGamePage()
     }
 
     function playerHasWon() {
-        props.setWinOrLoseModalOpen(true)
-        props.setPlayerHasWon(true)
+        setWinOrLoseModalOpen(true)
+        setPlayerHasWon(true)
         resetGamePage()
     }
 
@@ -121,7 +122,7 @@ function MainGamePage(props) {
             <header className="game_page_header">
                 <div className="game_page_header_left_side">
                     <button onClick={handleBurgerMenuClick} alt="menu button" className="burger_menu"> <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" /></button>
-                    <h1 className="category_name">{props.categoryChoice}</h1>
+                    <h1 className="category_name">{categoryChoice}</h1>
                 </div>
 
                 <div className="game_page_header_right_side">

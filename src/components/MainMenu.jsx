@@ -1,17 +1,19 @@
-import "../style-sheets/MainMenu.css"
+import "../styles/MainMenu.css"
 
 function MainMenu(props) {
 
+    const {setMainMenuOpen, setInstructionMenuOpen, setCategoryPickMenuOpen} = props
+
     function closeMainMenu() {
-        props.setMainMenuOpen(false)
+        setMainMenuOpen(false)
     }
 
     function openInstructionMenu() {
-        props.setInstructionMenuOpen(true)
+        setInstructionMenuOpen(true)
     }
 
     function openCategoryPickMenu() {
-        props.setCategoryPickMenuOpen(true)
+        setCategoryPickMenuOpen(true)
     }
 
     function handlePlayBtnClick() {
@@ -28,7 +30,7 @@ function MainMenu(props) {
         <section className="main_menu">
             <div className="blue_modal-box">
                 <img className="title_svg" src="../assets/images/logo.svg" alt="The Hangman Game" />
-                <button className="start_btn" alt="play button" onClick={handlePlayBtnClick} ><img className="play_btn_svg" src="../assets/images/icon-play.svg" aria-hidden="true" /></button >
+                <button className="start_btn" alt="play button" title="play-btn" onClick={handlePlayBtnClick} ><img className="play_btn_svg" src="../assets/images/icon-play.svg" aria-hidden="true" /></button >
                 <button className="how_to_play_btn" onClick={handleHowToPlayBtnClick} > how to play </button>
             </div>
         </section>

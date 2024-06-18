@@ -1,10 +1,10 @@
-import "../style-sheets/GameWordLetter.css"
+import "../styles/GameWordLetter.css"
 
 function GameWordLetter(props) {
-    
+    const {correctLetter, letter} = props
     return (
-        <div className={props.correctLetter ? "game_word_letter" : "game_word_letter hidden"}>
-            {props.letter}
+        <div className={correctLetter ? "game_word_letter" : "game_word_letter hidden"}>
+            {letter}
         </div>
     )
 

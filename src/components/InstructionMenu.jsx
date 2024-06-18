@@ -1,14 +1,16 @@
 import BackBtn from "./BackBtn"
-import "../style-sheets/InstructionMenu.css"
+import "../styles/InstructionMenu.css"
 
 function InstructionMenu(props) {
 
+    const {setMainMenuOpen, setInstructionMenuOpen} = props
+
     function openMainMenu() {
-        props.setMainMenuOpen(true)
+        setMainMenuOpen(true)
     }
 
     function closeInstructionMenu() {
-        props.setInstructionMenuOpen(false)
+        setInstructionMenuOpen(false)
     }
 
     function handleBackBtnClick() {

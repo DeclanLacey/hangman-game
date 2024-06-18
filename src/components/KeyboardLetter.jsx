@@ -1,17 +1,19 @@
 import { useEffect } from "react"
-import "../style-sheets/KeyboardLetter.css"
+import "../styles/KeyboardLetter.css"
 
 function KeyboardLetter(props) {
+
+    const {disabledBtn, handleLetterClick, classes, letter} = props
 
     return (
         <button 
             id="keyboard-key" 
-            disabled={props.disabledBtn} 
-            onClick={props.handleLetterClick} 
-            aria-label={`button for letter ${props.letter} `} 
-            className={props.classes}
+            disabled={disabledBtn} 
+            onClick={handleLetterClick} 
+            aria-label={`button for letter ${letter} `} 
+            className={classes}
         >
-            {props.letter}
+            {letter}
         </button>
     )
 }

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import BackBtn from "./BackBtn"
 import CategoryCard from "./CategoryCard"
-import "../style-sheets/CategoryPickMenu.css"
+import "../styles/CategoryPickMenu.css"
 
 function CategoryPickMenu(props) {
 
+    const {setCategoryChoice, setGamePageOpen, setMainMenuOpen, setCategoryPickMenuOpen} = props
     const [categoryNames, setCategoryNames] = useState()
 
     useEffect(() => {
@@ -26,21 +27,21 @@ function CategoryPickMenu(props) {
     }
 
     function handleCategoryBtnClick(event) {
-        props.setCategoryChoice(event.target.textContent)
+        setCategoryChoice(event.target.textContent)
         openGamePage()
         closeCategoryPickMenu()
     }
 
     function openGamePage() {
-        props.setGamePageOpen(true)
+        setGamePageOpen(true)
     }
  
     function openMainMenu() {
-        props.setMainMenuOpen(true)
+        setMainMenuOpen(true)
     }
 
     function closeCategoryPickMenu() {
-        props.setCategoryPickMenuOpen(false)
+        setCategoryPickMenuOpen(false)
     }
 
     function handleBackBtnClick() {

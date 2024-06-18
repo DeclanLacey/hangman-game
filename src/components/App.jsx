@@ -5,7 +5,7 @@ import CategoryPickMenu from './CategoryPickMenu'
 import MainGamePage from './MainGamePage'
 import WinOrLoseModal from './WinOrLoseModal'
 import PausedModal from './PausedModal'
-import '../style-sheets/App.css'
+import "../styles/App.css"
 
 function App() {
 

@@ -1,10 +1,12 @@
-import "../style-sheets/CategoryCard.css"
+import "../styles/CategoryCard.css"
 
 function CategoryCard(props) {
 
+    const {handleCategoryBtnClick, name} = props
+
     return (
-        <button onClick={props.handleCategoryBtnClick} alt={`button that has category name of ${props.name}`} className="category_card">
-            {props.name}
+        <button onClick={handleCategoryBtnClick} alt={`button that has category name of ${name}`} className="category_card">
+            {name}
         </button>
     )
 }

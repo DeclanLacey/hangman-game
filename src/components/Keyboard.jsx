@@ -1,14 +1,16 @@
 import KeyboardLetter from "./KeyboardLetter"
 import { getLetters } from "../util/getLetters"
-import "../style-sheets/Keyboard.css"
+import "../styles/Keyboard.css"
 
 function Keyboard(props) {
 
+    const {gameWordLetterArray, setCurrentChosenLetters, lowerHealthByOne, currentChosenLetters} = props
+
     function handleLetterClick(event) {
-        if ((props.gameWordLetterArray.includes(event.target.textContent)) === false) {
-            props.lowerHealthByOne()
+        if ((gameWordLetterArray.includes(event.target.textContent)) === false) {
+            lowerHealthByOne()
         }
-        props.setCurrentChosenLetters(prevState => [...prevState, event.target.textContent])
+        setCurrentChosenLetters(prevState => [...prevState, event.target.textContent])
     }
    
     function renderLetters() {
@@ -18,7 +20,7 @@ function Keyboard(props) {
             let classes = "keyboard_letter"
 
             function decideBtnAttributes() {
-                if (props.currentChosenLetters.includes(letter)) {
+                if (currentChosenLetters.includes(letter)) {
                     disabledBtn = true
                     classes = "keyboard_letter chosen_letter"
                 }

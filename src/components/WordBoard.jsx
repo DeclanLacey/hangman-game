@@ -1,15 +1,17 @@
 import GameWordLetter from "./GameWordLetter"
-import "../style-sheets/WordBoard.css"
+import "../styles/WordBoard.css"
 
 function WordBoard(props) {
 
+    const {gameWord, currentChosenLetters} = props
+
     function renderLetters() {
-        let gameWord = props.gameWord
-        const letters = gameWord.split("")
+        let word = gameWord
+        const letters = word.split("")
         
         const wordLetters = letters.map((letter, index) => {
             function checkForCorrectLetter() {
-                if(props.currentChosenLetters.includes(letter)) {
+                if(currentChosenLetters.includes(letter)) {
                     return true
                 }else {
                     return false
