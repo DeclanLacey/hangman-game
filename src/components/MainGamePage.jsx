@@ -3,6 +3,7 @@ import WordBoard from "./WordBoard"
 import Keyboard from "./Keyboard"
 import "../styles/MainGamePage.css"
 
+
 const TOTALHEALTH = 8
 let health = TOTALHEALTH
 
@@ -12,9 +13,19 @@ function MainGamePage(props) {
     const [gameWordUniqueLetters, setGameWordUniqueLetters] = useState([])
     const [gameWordLetterArray, setGameWordLetterArray] = useState([])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
-    const {categoryChoice, setPausedModalOpen, setWinOrLoseModalOpen, setPlayerHasLost, setPlayerHasWon, setNewGame, newGame} = props
+    const {categoryChoice, setCategoryChoice, setPausedModalOpen, setWinOrLoseModalOpen, setPlayerHasLost, setPlayerHasWon, setNewGame, newGame} = props
     
     const healthBar = document.getElementById("health")
+    useEffect(() => {
+        const unloadCallBack = (event) => {
+            event.preventDefault()
+            event.returnValue = ""
+            return ""
+        }
+
+        window.addEventListener("beforeunload", unloadCallBack)
+        return () => window.removeEventListener("beforeunload", unloadCallBack)
+    } , [])
     
     useEffect(() => {
         const abortController = new AbortController();
@@ -23,18 +34,14 @@ function MainGamePage(props) {
         async function getGameWord() {
             
             try {
-                if (availableCategories.includes(categoryChoice)) {
-                    const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${categoryChoice}`
-                    let response = await fetch(apiURL)
-                    let data = await response.json()
-                    const randomIndex = getRandomNumberForWord(data.length)
-                    setGameWord(data[randomIndex].word)
-                    setGameWordLetterArray((data[randomIndex].word).split(""))
-                    setGameWordUniqueLetters([...new Set((data[randomIndex].word).split(""))])
-
-                }else {
-                    throw new Error("invalid category choice")
-                }
+                
+                const apiURL = `https://www.wordgamedb.com/api/v1/words/?category=${categoryChoice ? categoryChoice : getLocalStorage()}`
+                let response = await fetch(apiURL)
+                let data = await response.json()
+                const randomIndex = getRandomNumberForWord(data.length)
+                setGameWord(data[randomIndex].word)
+                setGameWordLetterArray((data[randomIndex].word).split(""))
+                setGameWordUniqueLetters([...new Set((data[randomIndex].word).split(""))])
                 
             }catch(error) {
                 if (error.name !== "AbortError") {
@@ -45,6 +52,7 @@ function MainGamePage(props) {
             }
             
         }
+
         getGameWord()
 
         return () => abortController.abort()
@@ -110,19 +118,35 @@ function MainGamePage(props) {
         }
     }
 
+    function setLocalStorage() {
+        if (categoryChoice) {
+            localStorage.setItem("category", categoryChoice)
+        }
+    }
+
+    function getLocalStorage() {
+        let category
+        if (localStorage.getItem("category")) {
+            category = localStorage.getItem("category")
+        }
+        return category
+    }
+
     useEffect(() => {
         checkForPlayerLoseConditions()
         checkForPlayerWinConditions()
     }, [currentChosenLetters])
 
-    
+    useEffect(() => {
+        setLocalStorage()
+    }, [categoryChoice])
 
     return (
         <section>
             <header className="game_page_header">
                 <div className="game_page_header_left_side">
                     <button onClick={handleBurgerMenuClick} alt="menu button" className="burger_menu"> <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" /></button>
-                    <h1 className="category_name">{categoryChoice}</h1>
+                    <h1 className="category_name">{categoryChoice ? categoryChoice : getLocalStorage()}</h1>
                 </div>
 
                 <div className="game_page_header_right_side">

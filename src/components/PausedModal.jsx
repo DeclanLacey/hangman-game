@@ -1,4 +1,5 @@
 import "../styles/PausedModal.css"
+import { Link } from "react-router-dom"
 
 function PausedModal(props) {
 
@@ -13,8 +14,8 @@ function PausedModal(props) {
                 </div>
                 <div className="modal_btns">
                     <button aria-label="continue button" onClick={handleContinueBtnClick} className="modal_btn-blue continue-btn"> continue </button>
-                    <button aria-label="new category button" onClick={handleNewCategoryBtnClick} className="modal_btn-blue new-category-btn"> new category </button>
-                    <button aria-label="quit game button" onClick={handleQuitBtnClick} className="modal_btn-pink quit-btn"> quit game </button>
+                    <Link to={"/category"}><button aria-label="new category button" onClick={handleNewCategoryBtnClick} className="modal_btn-blue new-category-btn"> new category </button></Link>
+                    <Link to={"/"}><button aria-label="quit game button" onClick={handleQuitBtnClick} className="modal_btn-pink quit-btn"> quit game </button></Link>
                 </div>
             </aside>
         </div>

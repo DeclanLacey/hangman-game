@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import BackBtn from "./BackBtn"
 import CategoryCard from "./CategoryCard"
 import "../styles/CategoryPickMenu.css"
 
 function CategoryPickMenu(props) {
 
-    const {setCategoryChoice, setGamePageOpen, setMainMenuOpen, setCategoryPickMenuOpen} = props
+    const {setCategoryChoice} = props
     const [categoryNames, setCategoryNames] = useState()
 
     useEffect(() => {
@@ -21,38 +22,20 @@ function CategoryPickMenu(props) {
 
     function renderCategories() {
         const categoryElements = categoryNames.map((category, index) => {
-            return <CategoryCard handleCategoryBtnClick={handleCategoryBtnClick}  key={index} name={category}/>
+            return <Link key={index} to="/game"><CategoryCard handleCategoryBtnClick={handleCategoryBtnClick} name={category}/></Link>
         })
         return categoryElements
     }
 
     function handleCategoryBtnClick(event) {
         setCategoryChoice(event.target.textContent)
-        openGamePage()
-        closeCategoryPickMenu()
-    }
-
-    function openGamePage() {
-        setGamePageOpen(true)
-    }
- 
-    function openMainMenu() {
-        setMainMenuOpen(true)
-    }
-
-    function closeCategoryPickMenu() {
-        setCategoryPickMenuOpen(false)
-    }
-
-    function handleBackBtnClick() {
-        openMainMenu()
-        closeCategoryPickMenu()
+        
     }
 
     return (
         <section className="category_pick_menu">
             <header className="category_pick_header_container">
-                <BackBtn onClickFunction={handleBackBtnClick}/>
+                <BackBtn route={"/"}/>
                 <div className="category_page_title_container">
                 <h1 className="category_pick_title">Pick a Category</h1>
                     <img aria-hidden="true" className="category_page_title_shadow" src="../assets/images/pick-category.svg" />

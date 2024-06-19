@@ -1,11 +1,17 @@
+import { Link } from "react-router-dom"
 import "../styles/BackBtn.css"
 
 function BackBtn(props) {
-    const {onClickFunction} = props
+    
+    const {route} = props
+
     return (
-        <button onClick={onClickFunction} className="back_btn" alt="back button">
-            <img className="back_btn_icon" src="../assets/images/icon-back.svg" aria-hidden="true" />
-        </button>
+        <Link to={route}>
+            <button  className="back_btn" alt="back button">
+                <img className="back_btn_icon" src="../assets/images/icon-back.svg" aria-hidden="true" />
+            </button>
+        </Link>
+        
     )
 }
 

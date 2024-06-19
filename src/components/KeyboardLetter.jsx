@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import "../styles/KeyboardLetter.css"
 
 function KeyboardLetter(props) {

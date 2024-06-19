@@ -1,27 +1,11 @@
 import BackBtn from "./BackBtn"
 import "../styles/InstructionMenu.css"
 
-function InstructionMenu(props) {
-
-    const {setMainMenuOpen, setInstructionMenuOpen} = props
-
-    function openMainMenu() {
-        setMainMenuOpen(true)
-    }
-
-    function closeInstructionMenu() {
-        setInstructionMenuOpen(false)
-    }
-
-    function handleBackBtnClick() {
-        openMainMenu()
-        closeInstructionMenu()
-    }
-
+function InstructionMenu() {
     return(
         <section>
             <header className="instruction_menu_header">
-                <BackBtn onClickFunction={handleBackBtnClick}/>
+                <BackBtn route={"/"}/>
                 <div className="instruction_page_title_container">
                     <h1 className="instruction_page_title">How to Play</h1>
                     <img aria-hidden="true" className="instruction_page_title_shadow" src="../assets/images/how-to-play.svg" />

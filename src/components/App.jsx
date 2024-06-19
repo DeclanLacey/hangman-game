@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MainMenu from './MainMenu'
 import InstructionMenu from './InstructionMenu'
 import CategoryPickMenu from './CategoryPickMenu'
@@ -6,13 +6,10 @@ import MainGamePage from './MainGamePage'
 import WinOrLoseModal from './WinOrLoseModal'
 import PausedModal from './PausedModal'
 import "../styles/App.css"
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
-  const [mainMenuOpen, setMainMenuOpen] = useState(true)
-  const [instructionMenuOpen, setInstructionMenuOpen] = useState(false)
-  const [categoryPickMenuOpen, setCategoryPickMenuOpen] = useState(false)
-  const [gamePageOpen, setGamePageOpen] = useState(false)
   const [pausedModalOpen, setPausedModalOpen] = useState(false)
   const [winOrLoseModalOpen, setWinOrLoseModalOpen] = useState(false)
   const [playerHasWon, setPlayerHasWon] = useState(false)
@@ -22,18 +19,6 @@ function App() {
   
   function closePausedModal() {
     setPausedModalOpen(false)
-  }
-
-  function openMainMenu() {
-    setMainMenuOpen(true)
-  }
-
-  function closeGamePage() {
-    setGamePageOpen(false)
-  }
-
-  function openCategoryPickMenu() {
-    setCategoryPickMenuOpen(true)
   }
 
   function closeWinOrLoseModal() {
@@ -56,68 +41,46 @@ function App() {
   }
 
   function handleNewCategoryBtnClick() {
-    closeGamePage()
     closePausedModal()
-    openCategoryPickMenu()
     closeWinOrLoseModal()
     resetWinAndLoseState()
   }
 
   function handleQuitBtnClick() {
-    closeGamePage()
     closePausedModal()
     closeWinOrLoseModal()
-    openMainMenu()
     resetWinAndLoseState()
   }
 
+  
+
+
   return (
     <div className='app'>
-      
-      {mainMenuOpen 
-        ? 
-          <MainMenu 
-            setMainMenuOpen={setMainMenuOpen} 
-            setInstructionMenuOpen={setInstructionMenuOpen} 
-            setCategoryPickMenuOpen={setCategoryPickMenuOpen} 
-          /> 
-        : 
-          <></>
-      }
-      {instructionMenuOpen 
-        ? 
-          <InstructionMenu 
-            setMainMenuOpen={setMainMenuOpen} 
-            setInstructionMenuOpen={setInstructionMenuOpen} 
-          /> 
-        : 
-          <></>
-      }
-      {categoryPickMenuOpen 
-        ? 
-          <CategoryPickMenu 
-            setMainMenuOpen={setMainMenuOpen} 
-            setCategoryPickMenuOpen={setCategoryPickMenuOpen} 
-            setCategoryChoice={setCategoryChoice} 
-            setGamePageOpen={setGamePageOpen} 
-          /> 
-        : 
-          <></>
-      }
-      {gamePageOpen 
-        ? 
-          <MainGamePage 
-            categoryChoice={categoryChoice} 
-            setPausedModalOpen={setPausedModalOpen} 
-            setWinOrLoseModalOpen={setWinOrLoseModalOpen} 
-            setPlayerHasLost={setPlayerHasLost}
-            setPlayerHasWon={setPlayerHasWon}
-            setNewGame={setNewGame}
-            newGame={newGame}
-          /> 
-        : 
-          <></>
-      }
+      <Routes>
+        <Route path='/' element={<MainMenu />} />
+        <Route path='/how-to-play' element={<InstructionMenu />} />
+        <Route path='/category' element={
+            <CategoryPickMenu 
+              setCategoryChoice={setCategoryChoice} 
+            />
+          } 
+        />
+        <Route path='/game' element={
+            <MainGamePage 
+              setCategoryChoice={setCategoryChoice}
+              categoryChoice={categoryChoice} 
+              setPausedModalOpen={setPausedModalOpen} 
+              setWinOrLoseModalOpen={setWinOrLoseModalOpen} 
+              setPlayerHasLost={setPlayerHasLost}
+              setPlayerHasWon={setPlayerHasWon}
+              setNewGame={setNewGame}
+              newGame={newGame}
+            />
+          } 
+        />
+      </Routes>
+    
       {pausedModalOpen 
         ? 
           <PausedModal 

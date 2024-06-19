@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/WinOrLoseModal.css'
 
 function WinOrLoseModal(props) {
@@ -27,8 +28,8 @@ function WinOrLoseModal(props) {
                 
                 <div className='btn-container'>
                     <button aria-label='play again button' onClick={handlePlayAgainBtnClick} className='modal_btn-blue play-again-btn'> play again! </button>
-                    <button aria-label='new category button' onClick={handleNewCategoryBtnClick} className='modal_btn-blue new-category-btn'> new category </button>
-                    <button aria-label='quit game button' onClick={handleQuitBtnClick} className='modal_btn-pink quit-btn'> quit game </button>
+                    <Link to={"/category"}> <button aria-label='new category button' onClick={handleNewCategoryBtnClick} className='modal_btn-blue new-category-btn'> new category </button></Link>
+                    <Link to={"/"}><button aria-label='quit game button' onClick={handleQuitBtnClick} className='modal_btn-pink quit-btn'> quit game </button></Link>
                 </div>
                 
             </aside>
