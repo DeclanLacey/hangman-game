@@ -24,3 +24,26 @@
 .back_btn:hover {
     background: var(--pink-blue-gradient-hover);
 }
+
+
+
+/* ///////////// media query ///////////////////// */
+
+@media (min-width: 750px) {
+    .back_btn {
+        width: 65px;
+        height: 65px;
+        box-shadow: inset 0px -6px 0px 3px rgba(157, 45, 245, .25);
+    }
+
+    .back_btn-link {
+        width: 65px;
+        height: 65px;
+    }
+
+    .back_btn_icon {
+        width: 25px;
+        height: 25px;
+    }
+
+}

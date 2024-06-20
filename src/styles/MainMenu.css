@@ -69,3 +69,29 @@
     background-image: white;
     background: var(--main-blue-hover)
 }
+
+/* ///////////////// media query ////////////////////// */
+
+@media (min-width: 750px) {
+    .start_btn {
+        width: 200px;
+        height: 200px;
+    }
+
+    .play_btn_svg {
+        height: 65px;
+        width: 65px;
+    }
+
+    .start_btn-link {
+        width: 200px;
+        height: 200px;
+        margin-top: 110px;
+    }
+
+    .title_svg {
+        height: 160px;
+        width: 355px;
+        top: -80px;
+    }
+}

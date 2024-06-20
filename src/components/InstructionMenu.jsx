@@ -8,7 +8,8 @@ function InstructionMenu() {
                 <BackBtn route={"/"}/>
                 <div className="instruction_page_title_container">
                     <h1 className="instruction_page_title">How to Play</h1>
-                    <img aria-hidden="true" className="instruction_page_title_shadow" src="../assets/images/how-to-play.svg" />
+                    <div className="instruction_page_title_shadow">How to Play</div>
+                    {/* <img aria-hidden="true" className="instruction_page_title_shadow" src="../assets/images/how-to-play.svg" /> */}
                 </div>
             </header>
 
