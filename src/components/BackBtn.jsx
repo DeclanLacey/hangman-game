@@ -6,7 +6,7 @@ function BackBtn(props) {
     const {route} = props
 
     return (
-        <Link to={route}>
+        <Link className="back_btn-link" to={route}>
             <button  className="back_btn" alt="back button">
                 <img className="back_btn_icon" src="../assets/images/icon-back.svg" aria-hidden="true" />
             </button>

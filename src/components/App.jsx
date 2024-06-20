@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import MainMenu from './MainMenu'
 import InstructionMenu from './InstructionMenu'
 import CategoryPickMenu from './CategoryPickMenu'
@@ -51,9 +51,6 @@ function App() {
     closeWinOrLoseModal()
     resetWinAndLoseState()
   }
-
-  
-
 
   return (
     <div className='app'>

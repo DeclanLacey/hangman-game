@@ -3,7 +3,7 @@ import "../styles/InstructionMenu.css"
 
 function InstructionMenu() {
     return(
-        <section>
+        <section className="instruction_menu-container">
             <header className="instruction_menu_header">
                 <BackBtn route={"/"}/>
                 <div className="instruction_page_title_container">

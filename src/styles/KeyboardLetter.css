@@ -23,4 +23,6 @@
 
 .keyboard_letter:hover {
     cursor: pointer;
+    background-color: var(--main-blue);
+    color: white;
 }

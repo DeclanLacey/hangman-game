@@ -13,9 +13,11 @@ function PausedModal(props) {
                     <img className="paused_title-shadow" aria-hidden="true" src="../assets/images/paused.svg" />
                 </div>
                 <div className="modal_btns">
-                    <button aria-label="continue button" onClick={handleContinueBtnClick} className="modal_btn-blue continue-btn"> continue </button>
-                    <Link to={"/category"}><button aria-label="new category button" onClick={handleNewCategoryBtnClick} className="modal_btn-blue new-category-btn"> new category </button></Link>
-                    <Link to={"/"}><button aria-label="quit game button" onClick={handleQuitBtnClick} className="modal_btn-pink quit-btn"> quit game </button></Link>
+                    <div className="btn_background_container">
+                        <button aria-label="continue button" onClick={handleContinueBtnClick} className="modal_btn-blue continue-btn"> continue </button>
+                    </div>
+                    <Link className="btn_link" to={"/category"}><button aria-label="new category button" onClick={handleNewCategoryBtnClick} className="modal_btn-blue new-category-btn"> new category </button></Link>
+                    <Link className="btn_link" to={"/"}><button aria-label="quit game button" onClick={handleQuitBtnClick} className="modal_btn-pink quit-btn"> quit game </button></Link>
                 </div>
             </aside>
         </div>

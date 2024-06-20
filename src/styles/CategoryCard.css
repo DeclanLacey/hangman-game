@@ -4,7 +4,7 @@
     max-width: 354px;
     height: 77px;
     border-radius: 20px;
-    background-color: var(--main-blue);
+    background: var(--main-blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,4 +21,5 @@
 
 .category_card:hover {
     cursor: pointer;
+    background: var(--main-blue-hover);
 }

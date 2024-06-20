@@ -29,7 +29,6 @@ function MainGamePage(props) {
     
     useEffect(() => {
         const abortController = new AbortController();
-        const availableCategories = ["animal", "country", "food", "plant", "sport"]
 
         async function getGameWord() {
             
@@ -142,10 +141,14 @@ function MainGamePage(props) {
     }, [categoryChoice])
 
     return (
-        <section>
+        <section className="game_page-container">
             <header className="game_page_header">
                 <div className="game_page_header_left_side">
-                    <button onClick={handleBurgerMenuClick} alt="menu button" className="burger_menu"> <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" /></button>
+                    <div className="burger_menu-container">
+                        <button onClick={handleBurgerMenuClick} alt="menu button" className="burger_menu"> 
+                            <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" />
+                        </button>
+                    </div>
                     <h1 className="category_name">{categoryChoice ? categoryChoice : getLocalStorage()}</h1>
                 </div>
 

@@ -1,3 +1,14 @@
+.category_pick_menu {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.category_link {
+    background-color: white;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
 .category_card_container {
     display: flex;
     justify-content: center;

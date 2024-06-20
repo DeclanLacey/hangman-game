@@ -1,5 +1,6 @@
 :root {
     --main-blue: #2463FF;
+    --main-blue-hover: rgba(36, 99, 255, .8);
     --light-blue: #7199FF;
     --sky-blue: #3C74FF;
     --dark-blue: #261676;
@@ -10,6 +11,7 @@
     --pink: #FE71FE;
     --white: #FFFFFF;
     --pink-blue-gradient: linear-gradient(180deg, hsla(300, 99%, 72%, 1) 0%, hsla(223, 100%, 72%, 1) 100%);
+    --pink-blue-gradient-hover: linear-gradient(180deg, hsla(300, 99%, 72%, .8) 0%, hsla(223, 100%, 72%, .8) 100%);
     --light-blue-dark-blue-gradient: linear-gradient(180deg, hsla(230, 56%, 47%, 1) 0%, hsla(230, 100%, 24%, .83) 100%);
     --light-blue-white-gradient: linear-gradient(180deg, hsla(209, 100%, 70%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
 }
@@ -61,7 +63,19 @@ body {
     height: 477px;
 }
 
+.btn_link {
+    background-color: white;
+    height: 62px;
+    margin-bottom: 40px;
+    border-radius: 40px;
+}
 
+.btn_background_container {
+    background-color: white;
+    height: 62px;
+    margin-bottom: 40px;
+    border-radius: 40px;
+}
 
 .modal_btn-blue {
     height: 62px;
@@ -103,4 +117,12 @@ body {
 .modal_btn-pink:hover,
 .modal_btn-blue:hover {
     cursor: pointer;
+}
+
+.modal_btn-blue:hover {
+    background: var(--main-blue-hover);
+}
+
+.modal_btn-pink:hover {
+    background: var(--pink-blue-gradient-hover);
 }

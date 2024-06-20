@@ -11,3 +11,16 @@
     width: 17px;
     height: 17px;
 }
+
+.back_btn-link {
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+}
+
+/* /////////////////// hover /////////////////////// */
+
+.back_btn:hover {
+    background: var(--pink-blue-gradient-hover);
+}

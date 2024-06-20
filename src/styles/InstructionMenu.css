@@ -1,3 +1,8 @@
+.instruction_menu-container {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+}
+
 .instruction_menu_header {
     display: flex;
     justify-content: flex-start;

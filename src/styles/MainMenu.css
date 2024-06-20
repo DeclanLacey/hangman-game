@@ -20,7 +20,15 @@
     background: var(--pink-blue-gradient);
     box-shadow: 0px 4px 0px 5px #243041, inset 0px -9px 0px 6px #9D2DF5;
     border: none;
-    margin-top: 130px;
+}
+
+.start_btn-link {
+  position: relative;
+  height: 160px;
+  width: 160px;
+  border-radius: 100px;
+  margin-top: 130px;
+  background-color: white;
 }
 
 .play_btn_svg  {
@@ -32,22 +40,32 @@
     width: 260px;
     height: 62px;
     border-radius: 40px;
-    background-color: var(--main-blue);
+    background: var(--main-blue);
     border: none;
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: white;
-    margin-bottom: 40px;
     box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue), inset 0px 1px 0px 6px var(--sky-blue);
+}
+
+.how_to_play-btn-link {
+    background-color: white;
+    width: 260px;
+    height: 62px;
+    border-radius: 40px;
+    margin-bottom: 40px;
 }
 
 /* //////////////////// Hover ///////////////////// */
 
 .start_btn:hover {
     cursor: pointer;
+    background: var(--pink-blue-gradient-hover)
 }
 
 .how_to_play_btn:hover {
     cursor: pointer;
+    background-image: white;
+    background: var(--main-blue-hover)
 }

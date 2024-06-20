@@ -1,3 +1,8 @@
+.game_page-container {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+}
+
 .game_page_header {
     display: flex;
     justify-content: space-between;
@@ -24,6 +29,11 @@
     font-size: 2.5rem;
     text-transform: capitalize;
     font-weight: 200;
+}
+
+.burger_menu-container {
+    background-color: white;
+    border-radius: 100px;
 }
 
 .burger_menu {
@@ -86,4 +96,5 @@ progress::-webkit-progress-value {
 
 .burger_menu:hover {
     cursor: pointer;
+    background: var(--pink-blue-gradient-hover);
 }

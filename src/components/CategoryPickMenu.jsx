@@ -22,7 +22,7 @@ function CategoryPickMenu(props) {
 
     function renderCategories() {
         const categoryElements = categoryNames.map((category, index) => {
-            return <Link key={index} to="/game"><CategoryCard handleCategoryBtnClick={handleCategoryBtnClick} name={category}/></Link>
+            return <Link className="category_link" key={index} to="/game"><CategoryCard handleCategoryBtnClick={handleCategoryBtnClick} name={category}/></Link>
         })
         return categoryElements
     }
