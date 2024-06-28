@@ -36,9 +36,9 @@ function CategoryPickMenu(props) {
         <section className="category_pick_menu">
             <header className="category_pick_header_container">
                 <BackBtn route={"/"}/>
-                <div className="category_page_title_container">
-                <h1 className="category_pick_title">Pick a Category</h1>
-                    <img aria-hidden="true" className="category_page_title_shadow" src="../assets/images/pick-category.svg" />
+                <div className="category_page_title_container">               
+                    <h1 className="category_pick_title">Pick a Category</h1>
+                    <p className="category_pick_title-shadow" aria-hidden="true">Pick a Category</p>      
                 </div>
             </header>
             <div className="category_card_container">

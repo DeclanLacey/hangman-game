@@ -10,7 +10,7 @@ function PausedModal(props) {
             <aside className="blue_modal-box small_modal-box">
                 <div>
                     <h2 className="paused_text"> Paused </h2>
-                    <img className="paused_title-shadow" aria-hidden="true" src="../assets/images/paused.svg" />
+                    <p className="paused_title-shadow" aria-hidden="true">Paused</p>
                 </div>
                 <div className="modal_btns">
                     <div className="btn_background_container">

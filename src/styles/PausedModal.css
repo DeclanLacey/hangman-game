@@ -28,12 +28,17 @@
 
 .paused_title-shadow {
     position: absolute;
-    top: -36px;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
-    z-index: 1;
-    width: 195px;
-    height: 85px;
+    top: -145px;
+    font-size: 6rem;
+    left: 20%;
+    -webkit-text-stroke-width: 10px;
+    -webkit-text-stroke-color: var(--dark-grey);  
+}
+
+/* /////////////// media query /////////////////// */ 
+
+@media (min-width: 750px) {
+    .paused_title-shadow {
+        left: 33.8%;
+    }
 }

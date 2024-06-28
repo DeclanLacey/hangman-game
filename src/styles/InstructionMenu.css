@@ -32,7 +32,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 3rem;
-    -webkit-text-stroke-width: 9px;
+    -webkit-text-stroke-width: 10px;
     -webkit-text-stroke-color: var(--dark-grey);  
     width: 100%;
     z-index: -1;
@@ -126,8 +126,6 @@
     .instruction_page_title_container {
         margin-left: 100px;
     }
-
-    
 
     .instruction_page_title_shadow {
         font-size: 6rem;

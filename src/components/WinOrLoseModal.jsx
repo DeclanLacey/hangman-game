@@ -9,18 +9,18 @@ function WinOrLoseModal(props) {
         <div className='modal-container'>
             <aside className='blue_modal-box small_modal-box'>
                 { playerHasWon ?
-                    <div>
+                    <div className='win-lose-text-container'>
                         <h2 className="win-lose-text"> You Win </h2>
-                        <img className='win-shadow' src='../assets/images/win.svg' aria-hidden="true" />
+                        <p aria-hidden="true" className='win-lose-text-shadow-win'> You Win</p>
                     </div>
                   :
                     <></>
                 }
 
                 { playerHasLost ?
-                    <div>
+                    <div className='win-lose-text-container'>
                         <h2 className="win-lose-text"> You Lose </h2>
-                        <img className="lose-shadow" src='../assets/images/lose.svg' aria-hidden="true" />
+                        <p aria-hidden="true" className='win-lose-text-shadow-lose'> You Lose</p>
                     </div>
                   :
                     <></>

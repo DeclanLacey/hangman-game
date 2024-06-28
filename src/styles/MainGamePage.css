@@ -27,7 +27,8 @@
 .category_name {
     color: white;
     font-size: 2.5rem;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     font-weight: 200;
 }
 
@@ -97,4 +98,39 @@ progress::-webkit-progress-value {
 .burger_menu:hover {
     cursor: pointer;
     background: var(--pink-blue-gradient-hover);
+}
+
+
+/* ///////////////////// media query /////////////////// */
+
+@media (min-width: 750px) {
+    .burger_menu {
+        width: 65px;
+        height: 65px;
+    }
+
+    .burger_menu_icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .category_name {
+        font-size: 3.3rem;
+    }
+
+    .health_bar {
+        width: 160px;
+        height: 31px;
+    }
+
+    progress {
+        width: 140px;
+        height: 14px;
+        margin-left: 6px;
+    }
+
+    .heart_icon {
+        width: 54px;
+        height: 54px;
+    }
 }

@@ -1,9 +1,10 @@
 .word_board_word-outline {
     width: 37px;
     height: 60px;
-    background-color: var(--very-dark-blue);
+    background-color: rgba(36, 99, 255, .25);
     border-radius: 12px;
     box-shadow: inset 0px -2px 0px 3px var(--very-dark-blue);
+    
 }
 
 .word_board {
@@ -13,4 +14,15 @@
     margin-top: 80px;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+
+/* ///////////// media query //////////////////// */ 
+
+@media (min-width: 750px) {
+    .word_board_word-outline {
+        width: 65px;
+        height: 90px;
+        border-radius: 25px;
+    }
 }

@@ -15,3 +15,13 @@
 .hidden {
     display: none;
 }
+
+/* ////////////////// media query ////////////////// */
+
+@media (min-width: 750px) {
+    .game_word_letter {
+        width: 65px;
+        height: 90px;
+        border-radius: 25px;
+    }
+}
