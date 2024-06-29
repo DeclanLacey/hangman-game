@@ -134,3 +134,31 @@ progress::-webkit-progress-value {
         height: 54px;
     }
 }
+
+@media (min-width: 1440px) {
+
+    .game_page-container  {
+        padding-top: 40px;
+    }
+    .burger_menu {
+        width: 95px;
+        height: 95px;
+    }
+
+    .health_bar {
+        width: 240px;
+    }
+
+    .game_page_header {
+        margin-bottom: -20px;
+    }
+
+    .category_name {
+        margin-left: 40px;
+        font-size: 5rem;
+    }
+
+    progress {
+        width: 222px;
+    }
+}

@@ -23,5 +23,14 @@
         width: 65px;
         height: 90px;
         border-radius: 25px;
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .game_word_letter {
+        width: 110px;
+        height: 118px;
+        font-size: 5.5rem;
     }
 }

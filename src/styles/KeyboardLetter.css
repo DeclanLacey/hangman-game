@@ -40,3 +40,10 @@
         margin-right: 6px;
     }
 }
+
+@media (min-width: 1440px) {
+    .keyboard_letter {
+        width: 109px;
+        height: 84px;
+    }
+}

@@ -32,5 +32,15 @@
         width: 325px;
         height: 180px;
         flex-wrap: wrap;
+        font-size: 3rem;
+        border-radius: 30px;
+    }
+}
+
+@media screen {
+    .category_card {
+        width:  385px;
+        height: 190px;
+        font-size: 3.5rem;
     }
 }

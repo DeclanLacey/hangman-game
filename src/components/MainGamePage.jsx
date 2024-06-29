@@ -13,7 +13,7 @@ function MainGamePage(props) {
     const [gameWordUniqueLetters, setGameWordUniqueLetters] = useState([])
     const [gameWordLetterArray, setGameWordLetterArray] = useState([])
     const [currentChosenLetters, setCurrentChosenLetters] = useState([])
-    const {categoryChoice, setCategoryChoice, setPausedModalOpen, setWinOrLoseModalOpen, setPlayerHasLost, setPlayerHasWon, setNewGame, newGame} = props
+    const {categoryChoice, setPausedModalOpen, setWinOrLoseModalOpen, setPlayerHasLost, setPlayerHasWon, setNewGame, newGame} = props
     
     const healthBar = document.getElementById("health")
     useEffect(() => {
