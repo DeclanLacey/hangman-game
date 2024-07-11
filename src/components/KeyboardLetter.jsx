@@ -9,7 +9,7 @@ function KeyboardLetter(props) {
             id="keyboard-key" 
             disabled={disabledBtn} 
             onClick={handleLetterClick} 
-            aria-label={`button for letter ${letter} `} 
+            alt={`button for letter ${letter} `} 
             className={classes}
         >
             {letter}

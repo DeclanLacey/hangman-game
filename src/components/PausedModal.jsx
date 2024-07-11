@@ -14,10 +14,10 @@ function PausedModal(props) {
                 </div>
                 <div className="modal_btns">
                     <div className="btn_background_container">
-                        <button aria-label="continue button" onClick={handleContinueBtnClick} className="modal_btn-blue continue-btn"> continue </button>
+                        <button alt="continue button" onClick={handleContinueBtnClick} className="modal_btn-blue continue-btn"> continue </button>
                     </div>
-                    <Link className="btn_link" to={"/category"}><button aria-label="new category button" onClick={handleNewCategoryBtnClick} className="modal_btn-blue new-category-btn"> new category </button></Link>
-                    <Link className="btn_link" to={"/"}><button aria-label="quit game button" onClick={handleQuitBtnClick} className="modal_btn-pink quit-btn"> quit game </button></Link>
+                    <Link className="btn_link" to={"/category"}><button alt="new category button" onClick={handleNewCategoryBtnClick} className="modal_btn-blue new-category-btn"> new category </button></Link>
+                    <Link className="btn_link" to={"/"}><button alt="quit game button" onClick={handleQuitBtnClick} className="modal_btn-pink quit-btn"> quit game </button></Link>
                 </div>
             </aside>
         </div>

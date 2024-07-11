@@ -146,7 +146,7 @@ function MainGamePage(props) {
                 <div className="game_page_header_left_side">
                     <div className="burger_menu-container">
                         <button onClick={handleBurgerMenuClick} alt="menu button" className="burger_menu"> 
-                            <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" />
+                            <img className="burger_menu_icon" src="../assets/images/icon-menu.svg" alt="burger menu icon" />
                         </button>
                     </div>
                     <h1 className="category_name">{categoryChoice ? categoryChoice : getLocalStorage()}</h1>
@@ -154,7 +154,7 @@ function MainGamePage(props) {
 
                 <div className="game_page_header_right_side">
                     <div className="health_bar">
-                        <progress id="health" value="80" max="80" className="health_bar_level"></progress>
+                        <progress id="health" value="80" max="80" className="health_bar_level" alt={`health bar with the value of ${healthBar.value} out of 80`}></progress>
                     </div>
                     <img alt="heart icon" className="heart_icon" src="../assets/images/icon-heart.svg" />
                 </div>
